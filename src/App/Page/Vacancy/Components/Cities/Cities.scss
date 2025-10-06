@@ -1,0 +1,25 @@
+.city-tabs {
+  display: flex !important;
+  align-items: start !important;
+}
+
+.city-tabs {
+  .mantine-Tabs-tab {
+    border-color: #F6F6F7;
+
+    &:hover {
+      background-color: #F6F6F7;
+      border-color: #F6F6F7;
+    }
+
+    &[data-active="true"] {
+      border-color: #4c6ef5;
+      background-color: #F6F6F7;
+    }
+
+    a {
+      color: #0f0f10;
+      text-decoration: none;
+    }
+  }
+}

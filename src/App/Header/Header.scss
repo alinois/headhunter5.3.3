@@ -1,0 +1,97 @@
+.header {
+    position: relative;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 22.5px #1C1D1F0D;
+    width: 100%;
+    height: 60px;
+    display: flex;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 15px;
+    position: absolute;
+}
+
+.header-title-logo {
+    display: flex;
+    cursor: pointer;
+    img {
+        width: 30px;
+        height: 30px;
+    };
+}
+
+.header-title-topic_name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.header-pages {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin: auto;
+}
+
+.header-pages-vacancy,
+.header-pages-about {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #0F0F1080;
+    position: relative;
+    padding-right: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.35s ease-in-out;
+}
+
+.header-pages-about:hover,
+.header-pages-vacancy:hover {
+    color: #000000;
+}
+
+.active .header-pages-about-name,
+.active .header-pages-vacancy-name {
+    color: #000000;
+}
+
+
+
+.active-point {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    opacity: 0;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #364FC7;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.active .active-point {
+    opacity: 1;
+}
+
+
+.header-pages-about {
+    img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.header-pages-vacancy .icon-placeholder {
+  width: 18px;
+  height: 18px;
+  display: inline-block;  
+  flex-shrink: 0;          
+}

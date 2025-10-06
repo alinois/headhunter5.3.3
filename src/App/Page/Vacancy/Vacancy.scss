@@ -1,0 +1,27 @@
+.vacancy {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+    align-items: start !important;
+
+}
+
+.search-params {
+    display: flex;
+    flex-direction: column !important;
+}
+
+.all-titles {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 660px;
+    margin-bottom: 80px;
+    align-items: start !important;
+}
+
+.vacancy-status {
+    display: flex !important;
+    color: #4c6ef5;
+    font-size: 18px;
+    margin: 20px auto auto auto !important;
+}

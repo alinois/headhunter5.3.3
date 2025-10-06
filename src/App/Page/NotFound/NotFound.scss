@@ -1,0 +1,59 @@
+.vac-card {
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 707px;
+    height: 556px;
+    padding: 32px !important;
+    gap: 32px !important;
+    margin: auto !important;
+    margin-top: 65px !important;
+    border-radius: 12px !important;
+}
+
+.vac-card-info {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    box-sizing: border-box;
+}
+
+.vac-card-info-text {
+    gap: 12px !important;
+    width: 420px;
+}
+
+.vac-card-info-text-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 34px;
+    color: #0F0F10;
+    line-height: 130%;
+}
+
+.vac-card-info-text-descr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    color: #0F0F10;
+    line-height: 24px;
+}
+
+.sad-cat {
+    width: 640px;
+    height: 336px;
+    border-radius: 12px;
+}
+
+.vac-card-button {
+    button{
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 40px;
+    }
+}
+
+
+
+

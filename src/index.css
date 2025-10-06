@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 400;
+  background-color: #F6F6F7 !important;
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+          display: none;
+        }

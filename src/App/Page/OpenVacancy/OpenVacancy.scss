@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.vacancy-card {
+    width: 658px;
+    height: 248px;
+    box-sizing: border-box;
+    padding: 21px 24px!important;
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    border-radius: 12px !important;
+}
+
+.title-head {
+    display: flex;
+    flex-direction: column !important;
+    align-items: start !important;
+    gap: 8px !important;
+}
+
+.title-head-name {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.title-head-decr {
+    display: flex;
+    flex-direction: row !important;
+    align-items: start !important;
+}
+
+.title-head-decr-exp {
+    font-size: 14px !important;
+    margin: auto 0 !important;
+}
+
+.title-head-decr-pay {
+    font-size: 16px !important;
+}
+
+.title-info {
+    display: flex;
+    flex-direction: column !important;
+    align-items: start !important;
+    gap: 8px !important;
+}
+
+.title-info-company {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.title-info-format {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 9px !important;
+    font-weight: 700;
+    padding: 1px 6px !important;
+}
+
+.title-info-location {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.title-buttons-reply {
+    background-color: #0F0F10 !important;
+    color: #FFFFFF !important;
+    font-weight: 400 !important;
+    font-size: 14px;
+    padding: 1px 18px 1px 18px;
+    gap: 10px
+}
+
+.title-info-format.badge-hybrid {
+  background-color: #000000;
+  color: #FFFFFF;
+  opacity: 100% !important;
+}
+
+.title-info-format.badge-office {
+  background-color: #0F0F101A;
+  color: #0F0F1080;
+}
+
+.card-n-descr {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+}
+
+.descr-card {
+    width: 658px;
+    box-sizing: border-box;
+    padding: 24px!important;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px !important;
+    margin-bottom: 65px;
+}
+
+.descr-card-comp {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 !important;
+}
+
+.loading-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 65px;
+}
