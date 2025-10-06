@@ -1,6 +1,6 @@
 import './App.css';
-import Header from './Header/Header';
 import AboutMe from './Page/AboutMe/AboutMe';
+import Layout from './Layout';
 import NotFound from './Page/NotFound/NotFound';
 import OpenVacancy from './Page/OpenVacancy/OpenVacancy';
 import Vacancy from './Page/Vacancy/Vacancy';
@@ -12,12 +12,14 @@ function App() {
   return (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Navigate to="/vacancy" replace />} />
-      <Route path="vacancy" element={<><Header /><Vacancy /></>} />
-      <Route path="vacancy/:city" element={<><Header /><Vacancy /></>} />
-      <Route path="vacancy/id/:id"element={<><Header /><OpenVacancy /></>}/>
-      <Route path="about"element={<><Header /><AboutMe /></>}/>
-      <Route path="*"element={<><Header /><NotFound /></>}/>
+      <Route path='/' element={<Layout />}>
+        <Route path="/" element={<Navigate to="/vacancy" replace />} />
+        <Route path="vacancy" element={<Vacancy />} />
+        <Route path="vacancy/:city" element={<Vacancy />} />
+        <Route path="vacancy/id/:id"element={<OpenVacancy />}/>
+        <Route path="about"element={<AboutMe />}/>
+        <Route path="*"element={<NotFound />}/>
+      </Route>
     </Routes>
   </BrowserRouter>
 
