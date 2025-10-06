@@ -12,9 +12,16 @@
 }
 
 .all-titles {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     width: 660px;
     margin-bottom: 80px;
-    justify-content: center !important;
+    align-items: start !important;
+}
+
+.vacancy-status {
+    display: flex !important;
+    color: #4c6ef5;
+    font-size: 18px;
+    margin: 20px auto auto auto !important;
 }

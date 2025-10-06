@@ -16,7 +16,7 @@ export const useVacancySearchParams = () => {
   const [skills, setSkills] = useState(
     searchParams.get("skills")?.split(",") || defaultValues.skills
   );
-  const [city, setCity] = useState(searchParams.get("city") || defaultValues.city);
+  const [city, setCity] = useState(defaultValues.city);
 
   useEffect(() => {
     const params: Record<string, string> = {};
@@ -24,10 +24,9 @@ export const useVacancySearchParams = () => {
     if (page !== defaultValues.page) params.page = page.toString();
     if (text !== defaultValues.text) params.text = text;
     if (skills.join(",") !== defaultValues.skills.join(",")) params.skills = skills.join(",");
-    if (city !== defaultValues.city) params.city = city;
 
     setSearchParams(params, { replace: true });
-  }, [page, text, skills, city, setSearchParams]);
+  }, [page, text, skills, setSearchParams]);
 
   return {
     page, setPage,

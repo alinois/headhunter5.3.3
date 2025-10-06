@@ -10,15 +10,16 @@ import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 function App() {
 
   return (
-<BrowserRouter>
-  <Routes>
-    <Route path="/" element={<Navigate to="/vacancy" replace />} />
-    <Route path="vacancy" element={<><Header /><Vacancy /></>} />
-    <Route path="vacancy/:id"element={<><Header /><OpenVacancy /></>}/>
-    <Route path="me"element={<><Header /><AboutMe /></>}/>
-    <Route path="*"element={<><Header /><NotFound /></>}/>
-  </Routes>
-</BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Navigate to="/vacancy" replace />} />
+      <Route path="vacancy" element={<><Header /><Vacancy /></>} />
+      <Route path="vacancy/:city" element={<><Header /><Vacancy /></>} />
+      <Route path="vacancy/:id"element={<><Header /><OpenVacancy /></>}/>
+      <Route path="about"element={<><Header /><AboutMe /></>}/>
+      <Route path="*"element={<><Header /><NotFound /></>}/>
+    </Routes>
+  </BrowserRouter>
 
   );
 }

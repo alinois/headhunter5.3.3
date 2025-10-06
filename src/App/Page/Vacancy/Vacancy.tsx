@@ -6,6 +6,9 @@ import { Cities } from './Components/Cities/Cities';
 import { useGetVacanciesQuery } from '../../../api/vacancy-fetch';
 import { useVacancySearchParams } from '../../../hooks/useVacancySearchParams';
 import './Vacancy.scss';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import NotFound from '../NotFound/NotFound'
 
 const Vacancy = () => {
   const {
@@ -15,6 +18,14 @@ const Vacancy = () => {
     city, setCity,
   } = useVacancySearchParams();
 
+  const { city: cityParam } = useParams();
+
+  useEffect(() => {
+    if (cityParam === 'moscow') setCity('Москва');
+    else if (cityParam === 'petersburg') setCity('Санкт-Петербург');
+    else setCity('Все города');
+  }, [cityParam, setCity]);
+
   const { data, error, isLoading } = useGetVacanciesQuery({
     page,
     text: searchQuery,
@@ -22,18 +33,26 @@ const Vacancy = () => {
     city,
   });
 
+  const validCities = ['moscow', 'petersburg'];
+
+  if (cityParam && !validCities.includes(cityParam)) {
+    return <NotFound />;
+  }
+
+
   return (
     <Group className="vacancy">
       <ListSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} setPage={setPage} />
       
       <Group className="search-params">
         <Skills skills={skills} setSkills={setSkills} />
-        <Cities city={city} setCity={setCity} />
+        
       </Group>
 
       <Group className="all-titles">
-        {isLoading && <div>Подыскиваем вакансии...</div>}
-        {error && <div>Ошибка при загрузке вакансий</div>}
+        <Cities />
+        {isLoading && <div className="vacancy-status">Подыскиваем вакансии...</div>}
+        {error && <div className="vacancy-status">Ошибка при загрузке вакансий</div>}
         {data?.items.map(v => (
           <Titles key={v.id} vacancy={v} />
         ))}

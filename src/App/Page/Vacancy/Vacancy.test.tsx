@@ -52,9 +52,5 @@ describe('Vacancy component', () => {
     );
     fireEvent.change(searchInput, { target: { value: 'React' } });
     expect(searchInput).toHaveValue('React');
-
-    const citySelect = screen.getByPlaceholderText('Все города');
-    fireEvent.change(citySelect, { target: { value: 'Москва' } });
-    expect(citySelect).toHaveValue('Москва');
   });
 });

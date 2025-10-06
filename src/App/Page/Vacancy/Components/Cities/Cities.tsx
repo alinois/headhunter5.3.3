@@ -1,25 +1,27 @@
+import { NavLink, useParams } from 'react-router-dom';
 import './Cities.scss';
-import { Select, Card } from '@mantine/core'; 
-import { IconMapPin } from '@tabler/icons-react';
+import { Tabs } from '@mantine/core'; 
 
-interface CitiesProps {
-  city: string;
-  setCity: React.Dispatch<React.SetStateAction<string>>;
-}
+export const Cities = () => {
+  const { city: cityParam } = useParams();
 
-export const Cities = ({ city, setCity }: CitiesProps) => {
-  const icon = <IconMapPin size={16} />;
+  const activeValue =
+    cityParam === 'petersburg'
+      ? 'petersburg'
+      : cityParam === 'moscow'
+      ? 'moscow'
+      : 'all';
 
   return (
-    <Card className="skills" radius="md">
-      <Select
-        placeholder="Все города"
-        data={['Все города', 'Москва', 'Санкт-Петербург']}
-        value={city}
-        onChange={(val) => setCity(val || "Все города")}
-        leftSectionPointerEvents="none"
-        leftSection={icon}
-      />        
-    </Card>
+    <Tabs className="city-tabs" color="indigo" value={activeValue}>
+      <Tabs.List>
+        <Tabs.Tab value="moscow" className="city-tabs-choise">
+          <NavLink to="/vacancy/moscow">Москва</NavLink>
+        </Tabs.Tab>
+        <Tabs.Tab value="petersburg" className="city-tabs-choise">
+          <NavLink to="/vacancy/petersburg">Санкт-Петербург</NavLink>
+        </Tabs.Tab>
+      </Tabs.List>
+    </Tabs>
   );
 };

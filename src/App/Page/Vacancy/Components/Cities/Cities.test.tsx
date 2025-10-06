@@ -1,34 +1,39 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Cities } from "./Cities";
-import { MantineProvider } from "@mantine/core";
-import { useState } from "react";
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { Cities } from './Cities';
+import '@testing-library/jest-dom';
+import { MantineProvider } from '@mantine/core';
 
-const Wrapper = () => {
-  const [city, setCity] = useState("Все города");
-  return (
-    <MantineProvider>
-      <Cities city={city} setCity={setCity} />
-    </MantineProvider>
-  );
-};
+describe('Cities', () => {
+  const renderCity = (route: string) =>
+    render(
+      <MantineProvider>
+      <MemoryRouter initialEntries={[route]}>
+        <Routes>
+          <Route path="/vacancy/:city" element={<Cities />} />
+          <Route path="/vacancy" element={<Cities />} />
+        </Routes>
+      </MemoryRouter>
+      </MantineProvider>
+    );
 
-test("find area from select city", async () => {
-  render(<Wrapper />);
+  test('renders tabs and sets active', () => {
+    renderCity('/vacancy/moscow');
 
-  const input = screen.getByPlaceholderText(/Все города/i);
-  expect(input).toBeInTheDocument();
+    const moscowTab = screen.getByText('Москва').closest('button');
+    const petersburgTab = screen.getByText('Санкт-Петербург').closest('button');
 
-  const user = userEvent.setup();
-  await user.click(input);
+    expect(moscowTab).toHaveAttribute('data-active', 'true');
+    expect(petersburgTab).not.toHaveAttribute('data-active');
+  });
 
-  const moscowOption = await screen.findByText("Москва");
-  const piterOption = await screen.findByText("Санкт-Петербург");
+  test('unknown city sets no active tab', () => {
+    renderCity('/vacancy/minsk');
 
-  expect(moscowOption).toBeInTheDocument();
-  expect(piterOption).toBeInTheDocument();
+    const moscowTab = screen.getByText('Москва').closest('button');
+    const petersburgTab = screen.getByText('Санкт-Петербург').closest('button');
 
-
-  await user.click(moscowOption);
-  expect(input).toHaveValue("Москва");
+    expect(moscowTab).not.toHaveAttribute('data-active');
+    expect(petersburgTab).not.toHaveAttribute('data-active');
+  });
 });
